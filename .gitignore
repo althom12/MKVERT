@@ -66,3 +66,10 @@ Thumbs.db.meta
   
 # VS Code  
 *.vscode
+# FMOD Cache and Build Files
+FMODStudioCache.asset
+FMODStudioSettings.asset
+*.bank
+*.bank.meta
+Build/*
+Build.meta
