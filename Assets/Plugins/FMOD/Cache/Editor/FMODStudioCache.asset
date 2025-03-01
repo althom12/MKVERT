@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: ../../Users/alexa/OneDrive/Desktop/MKVERT/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638764024473799876
+  lastModified: 638764054996899294
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 1486
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -41,7 +41,7 @@ MonoBehaviour:
   - {fileID: -7037450822005503704}
   StringsBanks:
   - {fileID: 5138183281223866379}
-  cacheTime: 638764024473814906
+  cacheTime: 638764054996909289
   cacheVersion: 131607
 --- !u!114 &5138183281223866379
 MonoBehaviour:
@@ -58,8 +58,8 @@ MonoBehaviour:
   Path: ../../Users/alexa/OneDrive/Desktop/MKVERT/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638764024473814906
+  lastModified: 638764054996909289
   FileSizes:
   - Name: Desktop
-    Value: 712
+    Value: 820
   Exists: 1
