@@ -20,7 +20,7 @@ public class JetpackController : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        playerRigidbody.useGravity = false;   // 关闭默认重力
+        //playerRigidbody.useGravity = false;   // 关闭默认重力
         currentFuel = maxJetpackFuel;
 
         if (cameraTransform == null)
@@ -32,9 +32,11 @@ public class JetpackController : MonoBehaviour
     private void FixedUpdate()
     {
         bool isJetpackActive = jetpackButton.action.ReadValue<float>() > 0.5f;
+        
 
         if (isJetpackActive && currentFuel > 0)
         {
+            Debug.Log(isJetpackActive);
             UseJetpack();
         }
         else
