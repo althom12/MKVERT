@@ -2197,6 +2197,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Jetpack",
+            "id": "66b98717-db23-4c12-a7a7-1b2d78847e66",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "42242917-18f9-4af4-9717-6f1bbc5e3118",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2ddff80d-e4b9-4b13-a1d7-c9fec913a881",
+                    "path": "<OculusTouchController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9be6e182-e2ed-4c7a-a3cc-73e441506b15",
+                    "path": "<XRSimulatedController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
