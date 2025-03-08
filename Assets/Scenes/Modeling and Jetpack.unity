@@ -2272,7 +2272,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -2294,7 +2294,7 @@ MonoBehaviour:
   fuelRegenRate: 1
   cameraTransform: {fileID: 557218014}
   jetpackButton:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Jetpack Button
       m_Type: 0
@@ -2320,7 +2320,7 @@ MonoBehaviour:
         m_Action: Jetpack Button
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: 5667446173830999989, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
 --- !u!1 &1609497765
 GameObject:
   m_ObjectHideFlags: 0
