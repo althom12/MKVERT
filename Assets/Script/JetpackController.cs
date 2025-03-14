@@ -9,10 +9,12 @@ public class JetpackController : MonoBehaviour
     public float jetpackForce = 10f;          // 喷气背包推力
     public float maxJetpackFuel = 5f;         // 最大燃料
     public float fuelRegenRate = 1f;          // 燃料恢复速度
-    public Transform cameraTransform;         // 头部方向参考（一般是VR Main Camera）
+    public Transform cameraTransform;         // 头部方向参考（VR Main Camera）
+    public float fuelConsumptionRate = 2f;  // 燃料消耗系数，值越大消耗速度越快
+
 
     [Header("Input Action")]
-    public InputActionProperty jetpackButton;  // XR按钮映射（XRI里的Activate或自定义）
+    public InputActionProperty jetpackButton;  // XR按钮映射
 
     private Rigidbody playerRigidbody;
     private float currentFuel;
@@ -20,7 +22,7 @@ public class JetpackController : MonoBehaviour
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        //playerRigidbody.useGravity = false;   // 关闭默认重力
+        playerRigidbody.useGravity = true;   // 让玩家默认受重力影响
         currentFuel = maxJetpackFuel;
 
         if (cameraTransform == null)
@@ -32,30 +34,32 @@ public class JetpackController : MonoBehaviour
     private void FixedUpdate()
     {
         bool isJetpackActive = jetpackButton.action.ReadValue<float>() > 0.5f;
-        
+        // 打印日志查看按钮状态
+        Debug.Log("Jetpack Button Pressed: " + isJetpackActive);
+        Debug.Log("Fuel: " + currentFuel);
 
         if (isJetpackActive && currentFuel > 0)
         {
-            Debug.Log(isJetpackActive);
             UseJetpack();
         }
         else
         {
             RegenerateFuel();
+            playerRigidbody.useGravity = true; // 松开键后重力生效
         }
-
-        ApplyCustomGravity();
     }
 
     private void UseJetpack()
     {
+        playerRigidbody.useGravity = false; // 关闭重力
         Vector3 upwardForce = Vector3.up;
-        Vector3 forwardForce = cameraTransform.forward * 0.3f;  // 稍微向前推，增加真实感
+        Vector3 forwardForce = cameraTransform.forward * 0.3f;  // 让飞行更自然
 
         Vector3 finalForce = (upwardForce + forwardForce).normalized * jetpackForce;
+        Debug.Log("Jetpack Force: " + finalForce);
         playerRigidbody.AddForce(finalForce, ForceMode.Acceleration);
 
-        currentFuel -= Time.fixedDeltaTime;
+        currentFuel -= Time.fixedDeltaTime* 4f;
     }
 
     private void RegenerateFuel()
@@ -63,14 +67,6 @@ public class JetpackController : MonoBehaviour
         if (currentFuel < maxJetpackFuel)
         {
             currentFuel += Time.fixedDeltaTime * fuelRegenRate;
-        }
-    }
-
-    private void ApplyCustomGravity()
-    {
-        if (currentFuel <= 0)
-        {
-            playerRigidbody.AddForce(Vector3.down * 9.81f, ForceMode.Acceleration);
         }
     }
 
